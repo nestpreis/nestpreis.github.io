@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TikTok-Verbindung – Nestpreis</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="text">
+<h1>TikTok-Verbindung</h1>
+<p id="msg">Diese Seite wird von TikTok nach der Anmeldung aufgerufen.</p>
+<p><code id="code"></code></p>
+<p><a href="index.html">Zur Startseite</a></p>
+</main>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var c = q.get("code");
+  var e = q.get("error");
+  var msg = document.getElementById("msg");
+  if (c) {
+    msg.textContent = "Verbindung erfolgreich. Kopiere diesen Code (er gilt nur wenige Minuten) und gib ihn im GitHub-Workflow tiktok-auth ein:";
+    document.getElementById("code").textContent = c;
+  } else if (e) {
+    msg.textContent = "TikTok meldet: " + e;
+  }
+})();
+</script>
+</body>
+</html>
